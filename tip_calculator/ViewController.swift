@@ -21,6 +21,14 @@ class ViewController: UIViewController {
         tipLabel.text = "$0.00"
         totalLabel.text = "$0.00"
     }
+    
+    override func viewWillAppear(animated: Bool) {
+        super.viewWillAppear(animated)
+        var defaults = NSUserDefaults.standardUserDefaults()
+        var selectedIndex = defaults.integerForKey("default_tip_amount")
+        tipControl.selectedSegmentIndex = selectedIndex
+        onEditingChanged(self)
+    }
 
     override func didReceiveMemoryWarning() {
         super.didReceiveMemoryWarning()
