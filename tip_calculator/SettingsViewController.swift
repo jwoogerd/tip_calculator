@@ -20,8 +20,8 @@ class SettingsViewController: UIViewController {
     
     override func viewWillAppear(animated: Bool) {
         super.viewWillAppear(animated)
-        var defaults = NSUserDefaults.standardUserDefaults()
-        var selectedIndex = defaults.integerForKey("default_tip_amount")
+        let defaults = NSUserDefaults.standardUserDefaults()
+        let selectedIndex = defaults.integerForKey("default_tip_amount")
         defaultTipSegmentedControl.selectedSegmentIndex = selectedIndex
     }
 
@@ -31,7 +31,7 @@ class SettingsViewController: UIViewController {
     }
     
     @IBAction func onBackButtonPressed(sender: AnyObject) {
-        var defaults = NSUserDefaults.standardUserDefaults()
+        let defaults = NSUserDefaults.standardUserDefaults()
         defaults.setInteger(defaultTipSegmentedControl.selectedSegmentIndex, forKey: "default_tip_amount")
         defaults.synchronize()
         dismissViewControllerAnimated(true, completion: nil)
